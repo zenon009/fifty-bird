@@ -32,7 +32,7 @@ end
 function PlayState:update(dt)
     if love.keyboard.wasPressed('p') and pause == false then
         pause = true
-    elseif (love.keyboard.wasPressed('p') or love.keyboard.wasPressed('enter')
+    elseif (love.keyboard.wasPressed('p')
             or love.keyboard.wasPressed("space") or love.mouse.wasPressed(1)
         ) and pause == true then
         pause = false
@@ -123,7 +123,9 @@ function PlayState:render()
     self.bird:render()
     if pause then
         love.graphics.setFont(hugeFont)
-        love.graphics.printf('PAUSED', 0, 120, VIRTUAL_WIDTH, 'center')
+        love.graphics.printf('PAUSED', 0, 100, VIRTUAL_WIDTH, 'center')
+        love.graphics.setFont(mediumFont)
+        love.graphics.printf('Press space or mouse click or p to unpause', 0, 180, VIRTUAL_WIDTH, 'center')
     end
 end
 
